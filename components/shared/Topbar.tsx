@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {SignedIn, SignedOut,OrganizationSwitcher, SignOutButton} from "@clerk/nextjs";
+import {SignedIn,OrganizationSwitcher, SignOutButton} from "@clerk/nextjs";
 import {dark} from "@clerk/themes";
 
 function Topbar() {
