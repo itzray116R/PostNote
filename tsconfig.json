@@ -22,6 +22,17 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "../../AppData/Local/Programs/WebStorm/plugins/javascript-impl/jsLanguageServicesImpl/external/lib.es5.d.ts",
+    "../../AppData/Local/Programs/WebStorm/plugins/javascript-impl/jsLanguageServicesImpl/external/lib.es5.d.ts",
+    "../../AppData/Local/Programs/WebStorm/plugins/javascript-impl/jsLanguageServicesImpl/external/lib.es2015.symbol.wellknown.d.ts",
+    "../../AppData/Local/Programs/WebStorm/plugins/javascript-impl/jsLanguageServicesImpl/external/lib.es2015.symbol.wellknown.d.ts",
+    "../../AppData/Local/Programs/WebStorm/plugins/javascript-impl/jsLanguageServicesImpl/external/lib.es2015.symbol.wellknown.d.ts",
+    "../../AppData/Local/Programs/WebStorm/plugins/javascript-impl/jsLanguageServicesImpl/external/lib.es5.d.ts"
+  ],
   "exclude": ["node_modules"]
 }
