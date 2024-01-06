@@ -1,11 +1,11 @@
 import AccountProfile from "@/components/forms/AccountProfile";
 import {currentUser} from "@clerk/nextjs";
+import {redirect} from "@clerk/backend";
 
 async function Page() {
   const user = await currentUser();
-
-  const userInfo = {};
-
+  if (!user) return null; // to avoid typescript warnings
+  const userInfo = ({});
   const userData = {
     id: user.id,
     objectId: userInfo?._id,

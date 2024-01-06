@@ -43,7 +43,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
   const pathname = usePathname();
   const { startUpload } = useUploadThing("media");
 
-  const [files, setFiles] = useState<File[]>([]);
+  const [files] = useState<File[]>([]);
 
   const form = useForm<z.infer<typeof UserValidation>>({
     resolver: zodResolver(UserValidation),
@@ -83,7 +83,10 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     }
   };
 
-  const fileReader: FileReader = new FileReader();
+  // @ts-ignore
+  let reader: FileReader;
+  // @ts-ignore
+  reader = new FileReader();
   const handleImage = (
     e: ChangeEvent<HTMLInputElement>,
     fieldChange: (value: string) => void
@@ -94,17 +97,20 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
       const file = e.target.files[0];
 
-      // Rest of your code...
+      setFiles(Array.from(e.target.files));
 
-      fileReader.onload = async (event: ProgressEvent) => {
-        const imageDataUrl = event.target?.result?.toString() || "";
-        fieldChange(imageDataUrl);
+      if (!file.type.includes("image")) return;
+
+      reader.onload = (e) => {
+        if (reader.readyState === FileReader.DONE) {
+          const fileContent = e.target.result;
+          console.log('File content:', fileContent);
+        }
       };
 
-      fileReader.readAsDataURL(file);
+      reader.readAsDataURL(file);
     }
   };
-
 
   return (
     <Form {...form}>
