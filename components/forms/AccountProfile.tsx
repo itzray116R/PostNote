@@ -24,7 +24,6 @@ import { isBase64Image } from "@/lib/utils";
 
 import { UserValidation } from "@/lib/validations/user";
 import { updateUser } from "@/lib/actions/user.actions";
-import {ProgressEvent} from "undici-types";
 
 interface Props {
   user: {
@@ -43,7 +42,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
   const pathname = usePathname();
   const { startUpload } = useUploadThing("media");
 
-  const [files] = useState<File[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
 
   const form = useForm<z.infer<typeof UserValidation>>({
     resolver: zodResolver(UserValidation),
@@ -83,32 +82,26 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     }
   };
 
-  // @ts-ignore
-  let reader: FileReader;
-  // @ts-ignore
-  reader = new FileReader();
   const handleImage = (
     e: ChangeEvent<HTMLInputElement>,
     fieldChange: (value: string) => void
   ) => {
     e.preventDefault();
 
+    const fileReader = new FileReader();
+
     if (e.target.files && e.target.files.length > 0) {
-
       const file = e.target.files[0];
-
       setFiles(Array.from(e.target.files));
 
       if (!file.type.includes("image")) return;
 
-      reader.onload = (e) => {
-        if (reader.readyState === FileReader.DONE) {
-          const fileContent = e.target.result;
-          console.log('File content:', fileContent);
-        }
+      fileReader.onload = async (event:any) => {
+        const imageDataUrl = event.target?.result?.toString() || "";
+        fieldChange(imageDataUrl);
       };
 
-      reader.readAsDataURL(file);
+      fileReader.readAsDataURL(file);
     }
   };
 
