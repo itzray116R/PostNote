@@ -24,6 +24,7 @@ import { isBase64Image } from "@/lib/utils";
 
 import { UserValidation } from "@/lib/validations/user";
 import { updateUser } from "@/lib/actions/user.actions";
+import {connectToDB} from "@/lib/mongoose";
 
 interface Props {
   user: {
@@ -61,17 +62,17 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     if (hasImageChanged) {
       const imgRes = await startUpload(files);
 
-      if (imgRes && imgRes[0].url) {
+      if (imgRes?.[0]?.url) {
         values.profile_photo = imgRes[0].url;
       }
     }
 
     await updateUser({
+      userId: user.id,
+      bio: values.bio,
       name: values.name,
       path: pathname,
       username: values.username,
-      userId: user.id,
-      bio: values.bio,
       image: values.profile_photo,
     });
 
@@ -88,6 +89,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
   ) => {
     e.preventDefault();
 
+    /// <reference lib="dom" />
     const fileReader = new FileReader();
 
     if (e.target.files && e.target.files.length > 0) {
@@ -96,7 +98,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
 
       if (!file.type.includes("image")) return;
 
-      fileReader.onload = async (event:any) => {
+      fileReader.onload = async (event) => {
         const imageDataUrl = event.target?.result?.toString() || "";
         fieldChange(imageDataUrl);
       };
@@ -148,7 +150,6 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name='name'

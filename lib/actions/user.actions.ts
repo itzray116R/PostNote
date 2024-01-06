@@ -12,25 +12,26 @@ interface Params {
   image: string;
   path: string;
 }
-export async function updateUser({
-                                   userId,
-                                   bio,
-                                   name,
-                                   path,
-                                   username,
-                                   image,
-                                 }: Params): Promise<void> {
-  connectToDB();
+
+export async function updateUser ({
+                                    userId,
+                                    bio,
+                                    name,
+                                    path,
+                                    username,
+                                    image,
+                                  }: Params): Promise<void> {
+  await connectToDB();
 
   try {
     await User.findOneAndUpdate(
       {id: userId},
       {
-        username: username.toLowerCase(),
-        name,
         bio,
+        name,
+        username: username.toLowerCase(),
         image,
-        onboard: true,
+        onboarded: true,
       },
       {upsert: true}
     );
@@ -41,4 +42,20 @@ export async function updateUser({
   } catch (error: any) {
     throw new Error(`Failed to create/Update user: ${error.message}`)
   }
+}
+
+export async function fetchUser(userId: string){
+  try{
+    connectToDB()
+    return await User
+      .findOne({id: userId})
+      // .populate({
+      //   path: 'community',
+      //   model: Community
+      // })
+  } catch (error) {
+    throw new Error(`Failed to fetch User: ${error}`)
+
+  }
+
 }

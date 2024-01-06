@@ -1,4 +1,4 @@
-import mongoose, {mongo} from "mongoose";
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   id: {type:String,required: true},
@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     ref: 'Thread'
     }
   ],
-  onboard:{
+  onboarded:{
     type: Boolean,
     default: false,
   },

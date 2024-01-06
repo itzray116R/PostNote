@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
-import { dark,neobrutalism } from "@clerk/themes";
+import { dark } from "@clerk/themes";
 
 import "../globals.css";
 
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
                                      children,
-                                   }: {
+                                   }: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <ClerkProvider
       appearance={{
-        baseTheme: neobrutalism,
+        baseTheme: dark,
       }}
     >
       <html lang='en'>
