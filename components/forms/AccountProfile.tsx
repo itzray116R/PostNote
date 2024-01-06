@@ -90,6 +90,7 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     e.preventDefault();
 
     /// <reference lib="dom" />
+    // @ts-ignore
     const fileReader = new FileReader();
 
     if (e.target.files && e.target.files.length > 0) {
