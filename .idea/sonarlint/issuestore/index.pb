@@ -42,3 +42,23 @@ M
 lib/actions/thread.actions.ts,5\d\5dcc83718c72a974c130d0d0fc70701bf43ed1c2
 J
 lib/models/thread.model.ts,b\b\bb93fb5ae3a4a8f7d106ffaed2df47215abd9cc8
+Q
+!components/cards/CommunityCar.tsx,0\f\0f1f8f50bfb61e40829824dd34ffe6ff86d94eb8
+P
+ lib/actions/community.actions.ts,c\d\cdf3939f7be8f5fcaebb6fe6924f0740e9c09784
+M
+lib/models/community.model.ts,6\4\64877fc6838c709261ee25c6a7bdce032f51269a
+B
+constants/index.js,0\c\0ca12ba23d29cc84406fca25b60746e896b66e5b
+H
+components/ui/select.tsx,0\b\0bc98f2f5f44c5fa8a15041fc3a0029e7a32e480
+G
+components/ui/toast.tsx,a\d\ad73958003254bb4dbe32e25adedc1d28db7cdec
+I
+components/ui/toaster.tsx,1\8\1872d68496652a583e3814981b5b42eebde93057
+F
+components/ui/tabs.tsx,e\2\e2888d460a2bf392259e1b8ae6592d8cdeaf12a0
+J
+components/ui/textarea.tsx,2\0\20a26ff849bfc7d046766894325a849b728c2256
+I
+components/ui/menubar.tsx,3\6\369c28141e38eeb2438de7861178d9af26cbf634
