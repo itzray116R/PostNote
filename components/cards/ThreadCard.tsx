@@ -6,7 +6,7 @@ import DeleteThread from "../forms/DeleteThread";
 
 interface Props {
   id: string;
-  currentUserId: String;
+  currentUserId: string;
   parentId: string | null;
   content: string;
   author: {
@@ -38,7 +38,7 @@ function ThreadCard({
                       createdAt,
                       comments,
                       isComment,
-                    }: Props) {
+                    }: Props ) {
   return (
     <article
       className={`flex w-full flex-col rounded-xl ${
@@ -125,7 +125,7 @@ function ThreadCard({
 
       {!isComment && comments.length > 0 && (
         <div className='ml-1 mt-3 flex items-center gap-2'>
-          {comments.slice(0, 2).map((comment, index) => (
+            {comments.slice(0, 2).map((comment, index) => (
             <Image
               key={index}
               src={comment.author.image}

@@ -78,3 +78,7 @@ Q
 !components/forms/DeleteThread.tsx,1\0\1022e10369a202f03456ee1849bce60e955accb8
 L
 components/forms/Comment.tsx,2\6\26e3f282559ecce399bc7d8cabbe0b057b7942e2
+B
+tailwind.config.ts,5\2\52c961376029165b06e7861b1dc68c3b2455eeff
+O
+app/(root)/thread/[id]/page.tsx,1\f\1fb7409dc126505b89bb999fff5b0ee13af7c54d
