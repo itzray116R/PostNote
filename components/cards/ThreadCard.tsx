@@ -6,7 +6,7 @@ import DeleteThread from "../forms/DeleteThread";
 
 interface Props {
   id: string;
-  currentUserId: string;
+  currentUserId: String;
   parentId: string | null;
   content: string;
   author: {
