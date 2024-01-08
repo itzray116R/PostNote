@@ -82,3 +82,5 @@ B
 tailwind.config.ts,5\2\52c961376029165b06e7861b1dc68c3b2455eeff
 O
 app/(root)/thread/[id]/page.tsx,1\f\1fb7409dc126505b89bb999fff5b0ee13af7c54d
+P
+ app/(root)/profile/[id]/page.tsx,1\6\16c19e89c1829abecc0c15a276f0f677c67be883
